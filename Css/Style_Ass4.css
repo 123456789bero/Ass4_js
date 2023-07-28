@@ -1,0 +1,13 @@
+body{background-color:  #24353f;
+    line-height: 1.5;
+}
+.color{background-color: #24353f;}
+.boxshadow{box-shadow: 5px 10px 8px rgba(0, 0, 0, 0.57);}
+button:hover{background-color: royalblue !important;}
+.textcolor{color: royalblue !important;
+font-size: 2rem !important;}
+input{color: white !important;}
+.chiled{height: 400px;
+width: 60%;}
+.chiledwe{height: 200px;
+    width: 60%;}

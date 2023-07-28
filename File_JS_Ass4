@@ -1,0 +1,112 @@
+
+var mail=document.getElementById("Email");
+var pass=document.getElementById("Password");
+var exsit;
+var NameSU=document.getElementById("NameSU");
+var passSU=document.getElementById("PasswordSU");
+var mailSU=document.getElementById("EmailSU");
+var Button=document.querySelector("button");
+var buttomSU=document.getElementById("buttonSU")
+var sign=document.getElementById("signin");
+var parenttSU=document.querySelector(".parentSU");
+var parentt=document.querySelector(".parent")
+
+
+var exsit;
+var parentwe=document.querySelector(".parentwe");
+if(localStorage.getItem("Inputs")==null){
+    var inputscontainer=[];
+  }
+  else{inputscontainer=JSON.parse(localStorage.getItem("Inputs"))
+ }
+ 
+var EmailRegular=/^[a-zA-Z.!#$%&'*+=?^_`{|}~-]+@[a-zA-Z0-9-]+(.com)*$/
+var NameRegular=/^[a-zA-Z]+$/
+var PassRegular=/^[0-9]+[a-zA-Z]+$/
+function addvalueSU(){
+  var inputesSU={
+    nameSU:NameSU.value,
+    emailSU:mailSU.value,
+    passwordSU:passSU.value,
+}
+
+for (var index = 0; index < inputscontainer.length; index++){
+if(inputscontainer[index].emailSU==inputesSU.emailSU){ 
+  window.alert("this User Already Exsite");
+  exsit=true;
+  break;
+  }}
+  if(exsit==true){return;}
+
+  if(EmailRegular.test(mailSU.value)||NameRegular.test(NameSU.value)||PassRegular.test(passSU.value)){
+  inputscontainer.push(inputesSU)
+  localStorage.setItem("Inputs",JSON.stringify(inputscontainer))
+  clearSU();}
+  else{window.alert(" Email OR Name OR Pass Not Vailed")
+  clearSU();}
+ }
+  
+function addvalue(){
+  var inputes={
+      email:mail.value,
+      password:pass.value,  }
+      for (var index = 0; index < inputscontainer.length; index++){
+        if(inputscontainer[index].emailSU==inputes.email){
+          hiddenparent()
+          hiddenandshowwe(NameSU)
+         
+        }
+       // else {window.alert("Please Sign Up")}}
+      
+       
+       }}
+     
+
+
+
+
+
+
+
+
+
+    
+    
+
+  
+ function clearSU(){
+  NameSU.value="";
+ passSU.value="";
+ mailSU.value="";
+ }
+ function clear(){
+    mail.value="";
+    pass.value="";}
+    
+
+
+Button.addEventListener("click", function(){
+    addvalue();
+  
+})
+function hiddenparent(){
+  parentt.classList.add("d-none");
+  parentt.classList.remove("d-flex");
+}
+function hiddenandshowwe(username){
+  parentwe.classList.remove("d-none")
+  parentwe.classList.add("d-flex");
+  
+}
+function hiddenandshow()
+{parenttSU.classList.remove("d-none")
+parenttSU.classList.add("d-flex");}
+sign.addEventListener("click",function(){
+  hiddenandshow();
+
+})
+buttomSU.addEventListener("click",function () {
+  addvalueSU();
+})
+    
+
